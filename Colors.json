@@ -1,0 +1,12 @@
+[
+	{
+		"name": "dark violet",
+		"hexCode": "#9400D3",
+		"rgba": [148,0,211,1]
+	},
+	{
+		"name": "red",
+		"hexCode": "#FF0000",
+		"rgba": [255,0,0,1]
+	}
+]

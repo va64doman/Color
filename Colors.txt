@@ -1,0 +1,4 @@
+dark violet,#9400D3,148,0,211,1
+absolute zero,#0048BA,0,28,73,1
+black coffee,#3B2F2F,23,18,18,1
+bottle green,#006A4E,0,42,31,1
