@@ -32,6 +32,11 @@ public class ColourFrame extends javax.swing.JFrame
     public ColourFrame() 
     {
         initComponents();
+        btnJsonFile.setToolTipText("Read .json file and display colours' details.");
+        btnTextFile.setToolTipText("Read .txt file and display colours' details.");
+        listColour.setToolTipText("Display JSON string from colours.");
+        txtJsonFile.setToolTipText("Enter .json file.");
+        txtTextFile.setToolTipText("Enter .txt file.");
     }
 
     /**
@@ -53,6 +58,7 @@ public class ColourFrame extends javax.swing.JFrame
         listColour = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Rainbow of Colours");
 
         lblTextFile.setText("Enter text file");
 
@@ -190,6 +196,7 @@ public class ColourFrame extends javax.swing.JFrame
             panel.add(labels);
         }
         frame.add(panel);
+        frame.setTitle("Display Colors");
         frame.pack();
         frame.setVisible(true);
         
