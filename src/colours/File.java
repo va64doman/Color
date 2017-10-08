@@ -6,6 +6,7 @@
 package colours;
 import java.util.*;
 import java.io.*;
+import javax.swing.*;
 import org.json.*;
 
 /**
@@ -17,8 +18,15 @@ public class File
     // Use BufferedReader to read texts and buffer character
     ColorParser parse = new ColorParser();
     private BufferedReader file;
+    // Set List<ColorRainbow> to store ColorRainbow objects
     private List<ColorRainbow> list;
-    public List<ColorRainbow> getFromTextFile(String fileName) throws FileNotFoundException, IOException
+    /**
+     * This method allows to read from a text file and convert the data into a list.
+     * @param fileName the name of the file you want to read from
+     * @return the list of all color data
+     * @see List<ColorRainbow>
+     */
+    public List<ColorRainbow> getFromTextFile(String fileName)
     {
         // Read through all lines from text file
         // Initialise empty list
@@ -67,11 +75,13 @@ public class File
         catch(FileNotFoundException ex)
         {
             System.out.println("Error message is " + ex);
+            JOptionPane.showMessageDialog(null, "File does not existed.", "Unknown File", JOptionPane.INFORMATION_MESSAGE);
         }
         // Throw error where there are not enough attributes from file
-        catch (IllegalArgumentException | IOException ex)
+        catch (IllegalArgumentException | IOException | ArrayIndexOutOfBoundsException ex)
         {
             System.out.println("Error message is " + ex);
+            JOptionPane.showMessageDialog(null, "Something wrong with the data in file. Please check.", "Problem With File", JOptionPane.INFORMATION_MESSAGE);
         }
         // Throw error where the file is existed but transferring data is incorrect
         // Return list of colour
@@ -106,11 +116,13 @@ public class File
         catch (FileNotFoundException ex)
         {
             System.out.println("Error message is " + ex);
+            JOptionPane.showMessageDialog(null, "Something wrong with the data in file. Please check.", "Problem With File", JOptionPane.INFORMATION_MESSAGE);
         }
         // Throw error where line is not matched with the attribute from class
         catch (IOException | IllegalArgumentException | JSONException ex)
         {
             System.out.println("Error message is " + ex);
+            JOptionPane.showMessageDialog(null, "Check if file is in JSON format.", "Problem With File", JOptionPane.INFORMATION_MESSAGE);
         }
         // Throw error if not JSON format
         // Return list of colours

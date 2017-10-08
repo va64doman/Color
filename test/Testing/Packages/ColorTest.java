@@ -10,15 +10,28 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import java.util.*;
 import static org.junit.Assert.*;
+import colours.*;
 
 /**
  *
  * @author Van Do
  */
-public class ColorTest {
+public class ColorTest 
+{
+    ColorParser parse = new ColorParser();
     
-    public ColorTest() {
+    public ColorTest() 
+    {
+        
+    }
+    
+    public List<ColorRainbow> testList()
+    {
+        List<ColorRainbow> color = new ArrayList<>();
+        color.add(new ColorRainbow("red", "#FF0000", new int[]{255,0,0,1}));
+        return color;
     }
     
     @BeforeClass
@@ -35,6 +48,20 @@ public class ColorTest {
     
     @After
     public void tearDown() {
+    }
+    
+    @Test
+    public void checkIfListIsNotEmpty()
+    {
+        assertFalse(testList().isEmpty());
+    }
+    
+    @Test
+    public void checkIfJsonStringIsNotEmpty()
+    {
+        List<ColorRainbow> list = new ArrayList<>();
+        String jsonString = parse.serializeColours(list);
+        assertFalse(jsonString.length() != 0);
     }
 
     // TODO add test methods here.

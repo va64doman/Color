@@ -5,6 +5,7 @@
  */
 package colours;
 import java.util.*;
+import javax.swing.*;
 import org.json.*;
 
 /**
@@ -13,39 +14,70 @@ import org.json.*;
  */
 public class ColorParser 
 {
-    public String serializeColours(List<ColorRainbow> list)
+    public String serializeColours(List<ColorRainbow> list) throws NullPointerException
     {
+        // Create JSON array
         JSONArray array = new JSONArray();
+        // Go through each color in a list
         for(ColorRainbow color : list)
         {
+            // Set JSON object
             JSONObject json = new JSONObject();
+            // Set JSON key, name, from color's name
             json.put("name", color.getName());
+            // Set JSON key, hexCode, from color's hex code
             json.put("hexCode", color.getHexCode());
+            // Set JSON key, rgba, from color's rgba
             json.put("rgba", color.getRGBA());
+            // Add JSON object to JSON array
             array.put(json);
         }
         // Serialize list into JSON string format
         String jsonString = array.toString();
+        // Return JSON string
         return jsonString;
     }
 
     public List<ColorRainbow> deserializeColours(String inputJsonString)
     {
-        JSONArray array = new JSONArray(inputJsonString);
+        // Initialize list of colours
         List<ColorRainbow> colours = new ArrayList<>();
-        for(int count = 0; count < array.length(); count++){
-            JSONObject json = array.getJSONObject(count);
-            ColorRainbow color = new ColorRainbow();
-            color.setName(json.getString("name"));
-            color.setHexCode(json.getString("hexCode"));
-            JSONArray rgba = json.optJSONArray("rgba");
-            int[] attribute = new int[rgba.length()];
-            for(int aCount = 0; aCount < rgba.length(); aCount++)
+        try
+        {
+            // Set JSON array from JSON string
+            JSONArray array = new JSONArray(inputJsonString);
+            // Iterate through each JSON object in JSON array
+            for(int count = 0; count < array.length(); count++)
             {
-                attribute[aCount] = rgba.optInt(aCount);
+                // Set JSON object from the element at this index in JSON array
+                JSONObject json = array.getJSONObject(count);
+                // Initialize colour object
+                ColorRainbow color = new ColorRainbow();
+                // Set colour's name from JSON object's name
+                color.setName(json.getString("name"));
+                // Set colour's hex code from JSON object's hex code
+                color.setHexCode(json.getString("hexCode"));
+                // Set JSON array of rgba attributes from a JSON array, rgba
+                JSONArray rgba = json.optJSONArray("rgba");
+                // Set integer array and set length as rgba attribute's length
+                int[] attribute = new int[rgba.length()];
+                // Iterate through each attribute from JSON array, using the key, rgba
+                for(int aCount = 0; aCount < rgba.length(); aCount++)
+                {
+                    // Set element of attribute from rgba's element
+                    attribute[aCount] = rgba.optInt(aCount);
+                }
+                // Set colour's rgba attribute from attribute
+                color.setRGBA(attribute);
+                // Add colour object to list
+                colours.add(color);
             }
-            color.setRGBA(attribute);
-            colours.add(color);
+        }
+        catch(NullPointerException error)
+        {
+            // Catch error if the string does not contain the requirement from colour's attribute
+            System.out.println("Error message: " + error);
+            JOptionPane.showMessageDialog(null, "Something wrong with data in file.", "Problem With File", JOptionPane.INFORMATION_MESSAGE);
         }
         
         return colours;

@@ -17,28 +17,42 @@ public class ColorRainbow
     private String hexCode;
     // Get and set red, green, blue and alpha attritubes as integer array
     private int[] rgba;
-    
-    public String getName(){
+    // Null constructor
+    public ColorRainbow()
+    {
+        
+    }
+    // Parameterised constructor
+    public ColorRainbow(String cName, String hex, int[] attribute)
+    {
+        name = cName;
+        hexCode = hex;
+        rgba = attribute;
+    }
+    // Getters
+    public String getName()
+    {
         return name;
     }
-    
-    public String getHexCode(){
+    public String getHexCode()
+    {
         return hexCode;
     }
-    
-    public int[] getRGBA(){
+    public int[] getRGBA()
+    {
         return rgba;
     }
-    
-    public void setName(String cName){
+    // Setters
+    public void setName(String cName)
+    {
         name = cName;
     }
-    
-    public void setHexCode(String hex){
+    public void setHexCode(String hex)
+    {
         hexCode = hex;
     }
-    
-    public void setRGBA(int[] attributes){
+    public void setRGBA(int[] attributes)
+    {
         rgba = attributes;
     }
     

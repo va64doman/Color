@@ -11,20 +11,24 @@ package colours;
  */
 
 import java.awt.Color;
-import java.io.IOException;
-import org.json.*;
 import java.util.*;
-import java.util.logging.*;
 import javax.swing.*;
 
 public class ColourFrame extends javax.swing.JFrame 
 {
+    // Access File class methods
     File file = new File();
+    // Set a list as an array list to store ColorRainbow objects
     List<ColorRainbow> list = new ArrayList<>();
+    // Access ColorParser class methods
     ColorParser parse = new ColorParser();
+    // Access ColorRainbow class methods and use it as an object
     ColorRainbow colours = new ColorRainbow();
+    // Set default list model when the serialize string is added to the list box
     DefaultListModel model = new DefaultListModel();
+    // Create new frame to display colours
     JFrame frame = new JFrame("Colors");
+    // Create new panel for new frame
     JPanel panel = new JPanel();
     /**
      * Creates new form ColourFrame
@@ -32,7 +36,8 @@ public class ColourFrame extends javax.swing.JFrame
     public ColourFrame() 
     {
         initComponents();
-        btnJsonFile.setToolTipText("Read .json file and display colours' details.");
+        // Create tool tips for the control in the main frame
+        btnJsonFile.setToolTipText("Read .json file or json formatted file and display colours' details.");
         btnTextFile.setToolTipText("Read .txt file and display colours' details.");
         listColour.setToolTipText("Display JSON string from colours.");
         txtJsonFile.setToolTipText("Enter .json file.");
@@ -62,7 +67,7 @@ public class ColourFrame extends javax.swing.JFrame
 
         lblTextFile.setText("Enter text file");
 
-        lblJsonFile.setText("Enter JSON File");
+        lblJsonFile.setText("Enter JSON formatted File");
 
         btnTextFile.setText("Read Text File and Show Colour Data");
         btnTextFile.addActionListener(new java.awt.event.ActionListener() {
@@ -89,19 +94,17 @@ public class ColourFrame extends javax.swing.JFrame
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblTextFile)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtTextFile, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblJsonFile)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtJsonFile)))
+                        .addComponent(lblJsonFile)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnTextFile)
-                            .addComponent(btnJsonFile))
+                        .addComponent(txtJsonFile, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnJsonFile))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblTextFile)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTextFile, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnTextFile)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -125,50 +128,65 @@ public class ColourFrame extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Click on this button to display colors details from another frame from a text file.
+     * @param evt event happened in button
+     */
     private void btnTextFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTextFileActionPerformed
-        try 
-        {
-            list = file.getFromTextFile(txtTextFile.getText());
-            if(!checkListNotEmpty())
-            {
-                String output = parse.serializeColours(list);
-                listColour.setModel(model);
-                model.addElement(output);
-                
-                List<ColorRainbow> rainbow = parse.deserializeColours(output);
-                displayColor(rainbow);
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(null, "Please check file correctly.", "Problem With File", JOptionPane.INFORMATION_MESSAGE);
-            }
-        } 
-        catch (IOException ex) 
-        {
-            System.out.println(ex);
-        }
-    }//GEN-LAST:event_btnTextFileActionPerformed
-
-    private void btnJsonFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJsonFileActionPerformed
-        list = file.getFromJsonFile(txtJsonFile.getText()); 
+        // Click to read a text file and serialize and deserialize data into JSON string and list of colours
+        // Set list by reading through a file and stored ColorRainbow objects
+        // Read a file from the text box
+        list = file.getFromTextFile(txtTextFile.getText()); 
+        // Check if list is not empty
         if(!checkListNotEmpty())
         {
+            // Set output by the list serializes into JSON string
             String output = parse.serializeColours(list);
+            // Set list box's model from default list model
             listColour.setModel(model);
+            // Add output as list item to model
             model.addElement(output);
-            
+            // Deserialize output back to list of ColorRainbow objects
             List<ColorRainbow> rainbow = parse.deserializeColours(output);
+            // Display colours' details
             displayColor(rainbow);
         }
         else 
         {
-            JOptionPane.showMessageDialog(null, "Please check file correctly.", "Problem With File", JOptionPane.INFORMATION_MESSAGE);
+            // If list is empty, display message
+            JOptionPane.showMessageDialog(null, "List of colours is empty.", "No Colours Added", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btnTextFileActionPerformed
+    /**
+     * This method called a JSON-formatted file and display color details from another frame
+     */
+    private void btnJsonFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJsonFileActionPerformed
+        // Read a JSON-formatted file from text box's file name and store into list
+        list = file.getFromJsonFile(txtJsonFile.getText()); 
+        // Check if list is not empty
+        if(!checkListNotEmpty())
+        {
+            // Set output by serialize the list of colours into JSON string
+            String output = parse.serializeColours(list);
+            // Set model for this list box
+            listColour.setModel(model);
+            // Add JSON string from model to display the JSON string
+            model.addElement(output);
+            // Deserialize the JSON string back to list of colours
+            List<ColorRainbow> rainbow = parse.deserializeColours(output);
+            // Display colour data from another frame
+            displayColor(rainbow);
+        }
+        else 
+        {
+            // Display message box if list is empty
+            JOptionPane.showMessageDialog(null, "List of colours is empty.", "No Colours Added", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnJsonFileActionPerformed
 
     private Boolean checkListNotEmpty()
     {
+        // If the list is empty, return true , otherwise return false
         if(list.isEmpty())
         {
             return true;
@@ -181,24 +199,55 @@ public class ColourFrame extends javax.swing.JFrame
     
     private void displayColor(List<ColorRainbow> rainbow)
     {
-        JLabel[] labelList = new JLabel[rainbow.size()];
-        int count = 0;
-        for(ColorRainbow color : rainbow){
-            JLabel label = new JLabel("     ");
-            label.setToolTipText(color.getName() + " " + color.getHexCode());
-            label.setBackground(Color.decode(color.getHexCode()));
-            label.setOpaque(true);
-            labelList[count] = label;
-            count++;
-        }
-        for(JLabel labels : labelList)
+        try
         {
-            panel.add(labels);
+            // Create an array of label and set size using the list's size
+            // It is not using list because it causes duplicated labels
+            JLabel[] labelList = new JLabel[rainbow.size()];
+            // Set count to 0
+            int count = 0;
+            // Iterate each colour in a rainbow
+            for(ColorRainbow color : rainbow)
+            {
+                // Create new label, set label's text into visible empty space to see the colour easily
+                JLabel label = new JLabel("     ");
+                // Build strings when adding tooltip to the label
+                StringBuilder build = new StringBuilder();
+                // Using html component to design a label to make a readable label
+                build.append("<html>" + "<b>Colour name: </b>").append(color.getName()).append("<br/>");
+                build.append("<b>Colour hex code: </b>").append(color.getHexCode()).append("<br/>");
+                build.append("<b>Colour RGBA: </b>").append(Arrays.toString(color.getRGBA())).append("</html>");
+                label.setToolTipText(build.toString());
+                // Set label's background for this colour to display the details to the correct colour
+                label.setBackground(Color.decode(color.getHexCode()));
+                // Set label to opaque to easily see the colour to avoid label to not able to see through
+                label.setOpaque(true);
+                // Set label to element at this index in array of labels
+                labelList[count] = label;
+                // Increment count by 1 to add next label
+                count++;
+            }
+            // Iterate each label in a label list
+            for(JLabel labels : labelList)
+            {
+                // Add label to a panel
+                panel.add(labels);
+            }
+            // Add panel to a new frame
+            frame.add(panel);
+            // Set new frame's title
+            frame.setTitle("Display Colors");
+            // Set size of new frame by the number of labels lengthwise
+            frame.pack();
+            // Display this frame
+            frame.setVisible(true);
         }
-        frame.add(panel);
-        frame.setTitle("Display Colors");
-        frame.pack();
-        frame.setVisible(true);
+        catch(NumberFormatException error)
+        {
+            // Catch error when hex code is unable to convert to colour by mistake
+            System.out.println("Error message: " + error);
+            JOptionPane.showMessageDialog(null, "Please check file correctly.", "Problem With File", JOptionPane.INFORMATION_MESSAGE);
+        }
         
     }
     /**
