@@ -31,6 +31,7 @@ public class ColorTest
     {
         List<ColorRainbow> color = new ArrayList<>();
         color.add(new ColorRainbow("red", "#FF0000", new int[]{255,0,0,1}));
+        color.add(new ColorRainbow("green", "#00FF00", new int[]{0,255,0,1}));
         return color;
     }
     
@@ -53,20 +54,29 @@ public class ColorTest
     @Test
     public void checkIfListIsNotEmpty()
     {
+        // Test to see if list is empty
         assertFalse(testList().isEmpty());
     }
     
     @Test
     public void checkIfJsonStringIsNotEmpty()
     {
-        List<ColorRainbow> list = new ArrayList<>();
+        // Test to see if list can be converted to JSON string
+        List<ColorRainbow> list = testList();
         String jsonString = parse.serializeColours(list);
-        assertFalse(jsonString.length() != 0);
+        assertTrue(jsonString.length() != 0);
+    }
+    
+    @Test
+    public void checkIfJsonStringCanConvertToList()
+    {
+        // Test to see Json string can be converted to list and match with list before
+        List<ColorRainbow> list = testList();
+        String jsonString = parse.serializeColours(list);
+        List<ColorRainbow> deserialize = parse.deserializeColours(jsonString);
+        assertTrue("Both lists should be same when deserialize.", list.get(0).getName().equals(deserialize.get(0).getName()));
+        assertTrue("Both lists should be same when deserialize.", list.get(1).getName().equals(deserialize.get(1).getName()));
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+
 }

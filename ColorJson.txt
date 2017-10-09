@@ -1,12 +1,12 @@
 [
 	{
-		"name": "dark violet",
-		"hexCode": "#9400D3",
-		"rgba": [148,0,211,1]
+		"name": "blue",
+		"hexCode": "#0000FF",
+		"rgba": [0,0,255,1]
 	},
 	{
-		"name": "red",
-		"hexCode": "#FF0000",
-		"rgba": [255,0,0,1]
+		"name": "green",
+		"hexCode": "#00FF00",
+		"rgba": [0,255,0,1]
 	}
 ]

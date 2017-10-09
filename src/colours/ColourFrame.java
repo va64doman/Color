@@ -40,7 +40,7 @@ public class ColourFrame extends javax.swing.JFrame
         btnJsonFile.setToolTipText("Read .json file or json formatted file and display colours' details.");
         btnTextFile.setToolTipText("Read .txt file and display colours' details.");
         listColour.setToolTipText("Display JSON string from colours.");
-        txtJsonFile.setToolTipText("Enter .json file.");
+        txtJsonFile.setToolTipText("Enter .json file or JSON-formatted file.");
         txtTextFile.setToolTipText("Enter .txt file.");
     }
 
