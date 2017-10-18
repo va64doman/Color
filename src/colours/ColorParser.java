@@ -14,6 +14,12 @@ import org.json.*;
  */
 public class ColorParser 
 {
+    /**
+     * Converting a list of ColorRainbow objects into a JSON string
+     * @param list a list of ColorRainbow objects with color data
+     * @throws NullPointerException - it is thrown when it does not contains a data from key.
+     * @return a converted JSON string when list of ColorRainbow objects was being translated into JSON format
+     */
     public String serializeColours(List<ColorRainbow> list) throws NullPointerException
     {
         // Create JSON array
@@ -37,7 +43,11 @@ public class ColorParser
         // Return JSON string
         return jsonString;
     }
-
+    /**
+     * Converting a JSON string to a list of ColorRainbow objects
+     * @param inputJsonString a JSON-formatted string
+     * @return a list of ColorRainbow objects when translated JSON string into list
+     */
     public List<ColorRainbow> deserializeColours(String inputJsonString)
     {
         // Initialize list of colours
@@ -79,7 +89,7 @@ public class ColorParser
             System.out.println("Error message: " + error);
             JOptionPane.showMessageDialog(null, "Something wrong with data in file.", "Problem With File", JOptionPane.INFORMATION_MESSAGE);
         }
-        
+        // Return a list of colors
         return colours;
     }
 }

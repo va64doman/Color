@@ -10,14 +10,18 @@ package colours;
  * @author Van Do
  */
 
+// Use for making a background colour from the label
 import java.awt.Color;
+// Use for list to store ColorRainbow objects
 import java.util.*;
+// Build GUI for adding JSON string to list box by model
+// Build another frame to display front end for all ColorRainbow objects
 import javax.swing.*;
 
 public class ColourFrame extends javax.swing.JFrame 
 {
-    // Access File class methods
-    File file = new File();
+    // Access ReadFile class methods
+    ReadFile file = new ReadFile();
     // Set a list as an array list to store ColorRainbow objects
     List<ColorRainbow> list = new ArrayList<>();
     // Access ColorParser class methods
@@ -27,7 +31,7 @@ public class ColourFrame extends javax.swing.JFrame
     // Set default list model when the serialize string is added to the list box
     DefaultListModel model = new DefaultListModel();
     // Create new frame to display colours
-    JFrame frame = new JFrame("Colors");
+    JFrame frame = new JFrame();
     // Create new panel for new frame
     JPanel panel = new JPanel();
     /**
@@ -133,12 +137,12 @@ public class ColourFrame extends javax.swing.JFrame
      * @param evt event happened in button
      */
     private void btnTextFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTextFileActionPerformed
-        // Click to read a text file and serialize and deserialize data into JSON string and list of colours
-        // Set list by reading through a file and stored ColorRainbow objects
-        // Read a file from the text box
+        // Click to read a text file and serialize and deserialize data into JSON string and list of colours.
+        // Set list by reading through a file and stored ColorRainbow objects.
+        // Read a file from the text box.
         list = file.getFromTextFile(txtTextFile.getText()); 
         // Check if list is not empty
-        if(!checkListNotEmpty())
+        if(checkListNotEmpty())
         {
             // Set output by the list serializes into JSON string
             String output = parse.serializeColours(list);
@@ -158,13 +162,14 @@ public class ColourFrame extends javax.swing.JFrame
         }
     }//GEN-LAST:event_btnTextFileActionPerformed
     /**
-     * This method called a JSON-formatted file and display color details from another frame
+     * This method called a JSON-formatted file and display color details from another frame.
+     * @param evt event happened in button
      */
     private void btnJsonFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJsonFileActionPerformed
         // Read a JSON-formatted file from text box's file name and store into list
         list = file.getFromJsonFile(txtJsonFile.getText()); 
         // Check if list is not empty
-        if(!checkListNotEmpty())
+        if(checkListNotEmpty())
         {
             // Set output by serialize the list of colours into JSON string
             String output = parse.serializeColours(list);
@@ -183,11 +188,13 @@ public class ColourFrame extends javax.swing.JFrame
             JOptionPane.showMessageDialog(null, "List of colours is empty.", "No Colours Added", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnJsonFileActionPerformed
-
+    /**
+     * Check to see the list is not empty, set to false
+     */
     private Boolean checkListNotEmpty()
     {
         // If the list is empty, return true , otherwise return false
-        if(list.isEmpty())
+        if(!list.isEmpty())
         {
             return true;
         }
@@ -196,7 +203,10 @@ public class ColourFrame extends javax.swing.JFrame
             return false;
         }
     }
-    
+    /**
+     * Display front end GUI frame to the user to show all colors data from the list
+     * @param rainbow a list of ColorRainbow object from file that deserialize and serialize from JSON string
+     */
     private void displayColor(List<ColorRainbow> rainbow)
     {
         try

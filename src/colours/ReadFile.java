@@ -4,17 +4,22 @@
  * and open the template in the editor.
  */
 package colours;
+// Use for list to store ColorRainbow objects and return as list
 import java.util.*;
+// Use for reading the file
 import java.io.*;
+// Use for displaying message box
 import javax.swing.*;
+// Use for catching JSON exception
 import org.json.*;
 
 /**
  *
  * @author Van Do
  */
-public class File 
+public class ReadFile 
 {
+    // Access ColorParser methods to serialize list and deserialize JSON string
     // Use BufferedReader to read texts and buffer character
     ColorParser parse = new ColorParser();
     private BufferedReader file;
@@ -87,7 +92,11 @@ public class File
         // Return list of colour
         return list;
     }
-
+    /**
+     * Read a JSON-formatted file and deserialize the JSON string into list of ColorRainbow objects
+     * @param fileName the name of the file you want to read
+     * @return list of ColorRainbow objects
+     */
     public List<ColorRainbow> getFromJsonFile(String fileName)
     {
         // Read JSON file and deserialize them into ColorRainbow list
@@ -106,7 +115,9 @@ public class File
             // While this line is not null
             while (currentLine != null)
             {
+                // Add character to String builder
                 build.append(currentLine);
+                // Check next line
                 currentLine = file.readLine();
             }
             // Deserialize JSON string from file into list of colours
