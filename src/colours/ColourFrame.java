@@ -5,11 +5,6 @@
  */
 package colours;
 
-/**
- *
- * @author Van Do
- */
-
 // Use for making a background colour from the label
 import java.awt.Color;
 // Use for list to store ColorRainbow objects
@@ -17,7 +12,11 @@ import java.util.*;
 // Build GUI for adding JSON string to list box by model
 // Build another frame to display front end for all ColorRainbow objects
 import javax.swing.*;
-
+/**
+ * ColourFrame --- Main class that use for displaying the GUI form.
+ * @author Van Do
+ * @version 1.0
+ */
 public class ColourFrame extends javax.swing.JFrame 
 {
     // Access ReadFile class methods
@@ -34,8 +33,9 @@ public class ColourFrame extends javax.swing.JFrame
     JFrame frame = new JFrame();
     // Create new panel for new frame
     JPanel panel = new JPanel();
-    /**
-     * Creates new form ColourFrame
+    /** 
+     * The null constructor for the main class. 
+     * Creates new form.
      */
     public ColourFrame() 
     {
@@ -132,7 +132,7 @@ public class ColourFrame extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    /**
+    /** 
      * Click on this button to display colors details from another frame from a text file.
      * @param evt event happened in button
      */
@@ -161,7 +161,7 @@ public class ColourFrame extends javax.swing.JFrame
             JOptionPane.showMessageDialog(null, "List of colours is empty.", "No Colours Added", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnTextFileActionPerformed
-    /**
+    /** 
      * This method called a JSON-formatted file and display color details from another frame.
      * @param evt event happened in button
      */
@@ -203,7 +203,7 @@ public class ColourFrame extends javax.swing.JFrame
             return false;
         }
     }
-    /**
+    /** 
      * Display front end GUI frame to the user to show all colors data from the list
      * @param rainbow a list of ColorRainbow object from file that deserialize and serialize from JSON string
      */
@@ -299,13 +299,38 @@ public class ColourFrame extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    /**
+     * Click on JSON button to read JSON formatted file and display color data to front end
+     */
     private javax.swing.JButton btnJsonFile;
+    /**
+     * Click on text button to read text file and display color data to front end
+     */
     private javax.swing.JButton btnTextFile;
+    /**
+     * Scroll list box horizontally and vertically
+     */
     private javax.swing.JScrollPane jScrollPane1;
+    /**
+     * Display the label to instruct to the user to enter JSON formatted file
+     */
     private javax.swing.JLabel lblJsonFile;
+    /**
+     * Display the label to instruct to the user to enter text file
+     */
     private javax.swing.JLabel lblTextFile;
+    /**
+     * Display the list box that contains JSON strings. 
+     * This strings contain translated version from list of ColorRainbow objects.
+     */
     private javax.swing.JList<String> listColour;
+    /**
+     * User must enter this text field to be able to read JSON formatted file
+     */
     private javax.swing.JTextField txtJsonFile;
+    /**
+     * User must enter this text field to be able to read text file
+     */
     private javax.swing.JTextField txtTextFile;
     // End of variables declaration//GEN-END:variables
 }

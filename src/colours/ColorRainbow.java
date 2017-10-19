@@ -6,16 +6,25 @@
 package colours;
 
 /**
- *
+ * ColorRainbow --- This class contains data of the color.
  * @author Van Do
  */
 public class ColorRainbow 
 {
     // Get and set colour's name
+    /**
+     * The name of the color
+     */
     private String name;
     // Get and set colour's hex code
+    /**
+     * The hexadecimal format of the color
+     */
     private String hexCode;
     // Get and set red, green, blue and alpha attritubes as integer array
+    /**
+     * The attribute of the color (red, green, blue and alpha)
+     */
     private int[] rgba;
     // Null constructor
     /**

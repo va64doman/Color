@@ -15,7 +15,7 @@ import org.junit.*;
  *
  * @author Van Do
  */
-public class ColorTest 
+public class ColorTest
 {
     // Access ColorParser class method
     ColorParser parse = new ColorParser();

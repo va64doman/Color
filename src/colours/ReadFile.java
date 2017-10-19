@@ -14,7 +14,7 @@ import javax.swing.*;
 import org.json.*;
 
 /**
- *
+ * ReadFile --- This class allows to read text file, including text file in JSON format.
  * @author Van Do
  */
 public class ReadFile 
@@ -22,14 +22,19 @@ public class ReadFile
     // Access ColorParser methods to serialize list and deserialize JSON string
     // Use BufferedReader to read texts and buffer character
     ColorParser parse = new ColorParser();
+    /**
+     * Read characters from text file
+     */
     private BufferedReader file;
     // Set List<ColorRainbow> to store ColorRainbow objects
-    private List<ColorRainbow> list;
     /**
-     * This method allows to read from a text file and convert the data into a list.
+     * The list of ColorRainbow objects
+     * @see ColorRainbow
+     */
+    private List<ColorRainbow> list;
+    /** This method allows to read from a text file and convert the data into a list.
      * @param fileName the name of the file you want to read from
      * @return the list of all color data
-     * @see List<ColorRainbow>
      */
     public List<ColorRainbow> getFromTextFile(String fileName)
     {
@@ -92,8 +97,7 @@ public class ReadFile
         // Return list of colour
         return list;
     }
-    /**
-     * Read a JSON-formatted file and deserialize the JSON string into list of ColorRainbow objects
+    /** Read a JSON-formatted file and deserialize the JSON string into list of ColorRainbow objects
      * @param fileName the name of the file you want to read
      * @return list of ColorRainbow objects
      */

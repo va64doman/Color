@@ -9,7 +9,7 @@ import javax.swing.*;
 import org.json.*;
 
 /**
- *
+ * ColorParser --- This class contains method to translate list of ColorRainbow objects to JSON string and back.
  * @author Van Do
  */
 public class ColorParser 

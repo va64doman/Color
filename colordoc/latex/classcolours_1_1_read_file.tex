@@ -1,0 +1,76 @@
+\hypertarget{classcolours_1_1_read_file}{}\section{colours.\+Read\+File Class Reference}
+\label{classcolours_1_1_read_file}\index{colours.\+Read\+File@{colours.\+Read\+File}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} $>$ \hyperlink{classcolours_1_1_read_file_a6b240cdce8df090dca527f367bacb95b}{get\+From\+Text\+File} (String file\+Name)
+\item 
+List$<$ \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} $>$ \hyperlink{classcolours_1_1_read_file_a66c626180f88d15c7833677481eede05}{get\+From\+Json\+File} (String file\+Name)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Buffered\+Reader \hyperlink{classcolours_1_1_read_file_a3d7ab6f2517fbc88e36249963255930a}{file}
+\item 
+List$<$ \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} $>$ \hyperlink{classcolours_1_1_read_file_ada4823ab03166bb5b0c388b40460fa7d}{list}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classcolours_1_1_read_file}{Read\+File} --- This class allows to read text file, including text file in J\+S\+ON format. \begin{DoxyAuthor}{Author}
+Van Do 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcolours_1_1_read_file_a66c626180f88d15c7833677481eede05}\label{classcolours_1_1_read_file_a66c626180f88d15c7833677481eede05}} 
+\index{colours\+::\+Read\+File@{colours\+::\+Read\+File}!get\+From\+Json\+File@{get\+From\+Json\+File}}
+\index{get\+From\+Json\+File@{get\+From\+Json\+File}!colours\+::\+Read\+File@{colours\+::\+Read\+File}}
+\subsubsection{\texorpdfstring{get\+From\+Json\+File()}{getFromJsonFile()}}
+{\footnotesize\ttfamily List$<$\hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow}$>$ colours.\+Read\+File.\+get\+From\+Json\+File (\begin{DoxyParamCaption}\item[{String}]{file\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Read a J\+S\+O\+N-\/formatted file and deserialize the J\+S\+ON string into list of \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} objects 
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & the name of the file you want to read \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list of \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} objects 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcolours_1_1_read_file_a6b240cdce8df090dca527f367bacb95b}\label{classcolours_1_1_read_file_a6b240cdce8df090dca527f367bacb95b}} 
+\index{colours\+::\+Read\+File@{colours\+::\+Read\+File}!get\+From\+Text\+File@{get\+From\+Text\+File}}
+\index{get\+From\+Text\+File@{get\+From\+Text\+File}!colours\+::\+Read\+File@{colours\+::\+Read\+File}}
+\subsubsection{\texorpdfstring{get\+From\+Text\+File()}{getFromTextFile()}}
+{\footnotesize\ttfamily List$<$\hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow}$>$ colours.\+Read\+File.\+get\+From\+Text\+File (\begin{DoxyParamCaption}\item[{String}]{file\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+This method allows to read from a text file and convert the data into a list. 
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & the name of the file you want to read from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the list of all color data 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classcolours_1_1_read_file_a3d7ab6f2517fbc88e36249963255930a}\label{classcolours_1_1_read_file_a3d7ab6f2517fbc88e36249963255930a}} 
+\index{colours\+::\+Read\+File@{colours\+::\+Read\+File}!file@{file}}
+\index{file@{file}!colours\+::\+Read\+File@{colours\+::\+Read\+File}}
+\subsubsection{\texorpdfstring{file}{file}}
+{\footnotesize\ttfamily Buffered\+Reader colours.\+Read\+File.\+file\hspace{0.3cm}{\ttfamily [private]}}
+
+Read characters from text file \mbox{\Hypertarget{classcolours_1_1_read_file_ada4823ab03166bb5b0c388b40460fa7d}\label{classcolours_1_1_read_file_ada4823ab03166bb5b0c388b40460fa7d}} 
+\index{colours\+::\+Read\+File@{colours\+::\+Read\+File}!list@{list}}
+\index{list@{list}!colours\+::\+Read\+File@{colours\+::\+Read\+File}}
+\subsubsection{\texorpdfstring{list}{list}}
+{\footnotesize\ttfamily List$<$\hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow}$>$ colours.\+Read\+File.\+list\hspace{0.3cm}{\ttfamily [private]}}
+
+The list of \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} objects \begin{DoxySeeAlso}{See also}
+\hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/colours/\hyperlink{_read_file_8java}{Read\+File.\+java}\end{DoxyCompactItemize}
