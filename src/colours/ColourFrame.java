@@ -63,7 +63,7 @@ public class ColourFrame extends javax.swing.JFrame
         txtJsonFile = new javax.swing.JTextField();
         btnTextFile = new javax.swing.JButton();
         btnJsonFile = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        scrollPane = new javax.swing.JScrollPane();
         listColour = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -87,7 +87,7 @@ public class ColourFrame extends javax.swing.JFrame
             }
         });
 
-        jScrollPane1.setViewportView(listColour);
+        scrollPane.setViewportView(listColour);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,7 +96,7 @@ public class ColourFrame extends javax.swing.JFrame
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(scrollPane)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblJsonFile)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -126,7 +126,7 @@ public class ColourFrame extends javax.swing.JFrame
                     .addComponent(txtJsonFile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnJsonFile))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(117, Short.MAX_VALUE))
         );
 
@@ -134,7 +134,7 @@ public class ColourFrame extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
     /** 
      * Click on this button to display colors details from another frame from a text file.
-     * @param evt event happened in button
+     * @param evt - event happened in button.
      */
     private void btnTextFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTextFileActionPerformed
         // Click to read a text file and serialize and deserialize data into JSON string and list of colours.
@@ -163,7 +163,7 @@ public class ColourFrame extends javax.swing.JFrame
     }//GEN-LAST:event_btnTextFileActionPerformed
     /** 
      * This method called a JSON-formatted file and display color details from another frame.
-     * @param evt event happened in button
+     * @param evt - event happened in button.
      */
     private void btnJsonFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJsonFileActionPerformed
         // Read a JSON-formatted file from text box's file name and store into list
@@ -189,7 +189,7 @@ public class ColourFrame extends javax.swing.JFrame
         }
     }//GEN-LAST:event_btnJsonFileActionPerformed
     /**
-     * Check to see the list is not empty, set to false
+     * Check to see the list is not empty.
      */
     private Boolean checkListNotEmpty()
     {
@@ -204,8 +204,9 @@ public class ColourFrame extends javax.swing.JFrame
         }
     }
     /** 
-     * Display front end GUI frame to the user to show all colors data from the list
-     * @param rainbow a list of ColorRainbow object from file that deserialize and serialize from JSON string
+     * Display front end GUI frame to the user to show all colors data from the list.
+     * @param rainbow - a list of ColorRainbow object from file that deserialize and serialize from JSON string.
+     * @exception NumberFormatException - catch errors when the conversion between hex code and color has been failed.
      */
     private void displayColor(List<ColorRainbow> rainbow)
     {
@@ -261,7 +262,7 @@ public class ColourFrame extends javax.swing.JFrame
         
     }
     /**
-     * @param args the command line arguments
+     * @param args - the command line arguments
      */
     public static void main(String args[]) 
     {
@@ -299,38 +300,13 @@ public class ColourFrame extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    /**
-     * Click on JSON button to read JSON formatted file and display color data to front end
-     */
     private javax.swing.JButton btnJsonFile;
-    /**
-     * Click on text button to read text file and display color data to front end
-     */
     private javax.swing.JButton btnTextFile;
-    /**
-     * Scroll list box horizontally and vertically
-     */
-    private javax.swing.JScrollPane jScrollPane1;
-    /**
-     * Display the label to instruct to the user to enter JSON formatted file
-     */
     private javax.swing.JLabel lblJsonFile;
-    /**
-     * Display the label to instruct to the user to enter text file
-     */
     private javax.swing.JLabel lblTextFile;
-    /**
-     * Display the list box that contains JSON strings. 
-     * This strings contain translated version from list of ColorRainbow objects.
-     */
     private javax.swing.JList<String> listColour;
-    /**
-     * User must enter this text field to be able to read JSON formatted file
-     */
+    private javax.swing.JScrollPane scrollPane;
     private javax.swing.JTextField txtJsonFile;
-    /**
-     * User must enter this text field to be able to read text file
-     */
     private javax.swing.JTextField txtTextFile;
     // End of variables declaration//GEN-END:variables
 }

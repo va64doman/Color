@@ -32,9 +32,13 @@ public class ReadFile
      * @see ColorRainbow
      */
     private List<ColorRainbow> list;
-    /** This method allows to read from a text file and convert the data into a list.
-     * @param fileName the name of the file you want to read from
-     * @return the list of all color data
+    /** This method allows to read from a text file and convert the data into a list. See similar: {@link #getFromJsonFile}.
+     * @param fileName - the name of the file you want to read from.
+     * @return the list of all color data.
+     * @exception FileNotFoundException - catch errors if file does not existed.
+     * @exception IOException - catch errors if input operation has failed to read.
+     * @exception IllegalArgumentException - catch errors if the data from file does not match variable's requirement. See {@link #getFromJsonFile}.
+     * @exception ArrayIndexOutOfBoundsException - catch when the there are less split arrays in line. See {@link #getFromJsonFile}.
      */
     public List<ColorRainbow> getFromTextFile(String fileName)
     {
@@ -97,9 +101,13 @@ public class ReadFile
         // Return list of colour
         return list;
     }
-    /** Read a JSON-formatted file and deserialize the JSON string into list of ColorRainbow objects
-     * @param fileName the name of the file you want to read
-     * @return list of ColorRainbow objects
+    /** Read a JSON-formatted file and deserialize the JSON string into list of ColorRainbow objects. See similar: {@link #getFromTextFile}.
+     * @param fileName - the name of the file you want to read.
+     * @return list of ColorRainbow objects.
+     * @exception FileNotFoundException - see {@link #getFromTextFile}.
+     * @exception IOException - see {@link #getFromTextFile}.
+     * @exception IllegalArgumentException - see {@link #getFromTextFile}.
+     * @exception JSONException - check if line is not in JSON format.
      */
     public List<ColorRainbow> getFromJsonFile(String fileName)
     {

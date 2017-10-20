@@ -36,13 +36,13 @@ javax.\+swing.\+J\+Button \hyperlink{classcolours_1_1_colour_frame_a1fe23149a507
 \item 
 javax.\+swing.\+J\+Button \hyperlink{classcolours_1_1_colour_frame_aeca940071b6ad635188894ab1be05658}{btn\+Text\+File}
 \item 
-javax.\+swing.\+J\+Scroll\+Pane \hyperlink{classcolours_1_1_colour_frame_a13f0c92b9066a68b8ab31cdc346e12e2}{j\+Scroll\+Pane1}
-\item 
 javax.\+swing.\+J\+Label \hyperlink{classcolours_1_1_colour_frame_a3465e8e9a196ae2a3249b5212e954594}{lbl\+Json\+File}
 \item 
 javax.\+swing.\+J\+Label \hyperlink{classcolours_1_1_colour_frame_a89795e4433199461d0c29f8f2af8e35f}{lbl\+Text\+File}
 \item 
 javax.\+swing.\+J\+List$<$ String $>$ \hyperlink{classcolours_1_1_colour_frame_a9c6b0ac09f52427530bd1e0fbc285cc2}{list\+Colour}
+\item 
+javax.\+swing.\+J\+Scroll\+Pane \hyperlink{classcolours_1_1_colour_frame_a4101dbab121b9af67cb0ff9ef3c64a7a}{scroll\+Pane}
 \item 
 javax.\+swing.\+J\+Text\+Field \hyperlink{classcolours_1_1_colour_frame_adaffa1254ad772940748d49324e191a0}{txt\+Json\+File}
 \item 
@@ -77,7 +77,7 @@ The null constructor for the main class. Creates new form.
 
 This method called a J\+S\+O\+N-\/formatted file and display color details from another frame. 
 \begin{DoxyParams}{Parameters}
-{\em evt} & event happened in button \\
+{\em evt} & -\/ event happened in button. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classcolours_1_1_colour_frame_ad1dd5e41e9cc42f135ff3c1b343ff761}\label{classcolours_1_1_colour_frame_ad1dd5e41e9cc42f135ff3c1b343ff761}} 
@@ -88,7 +88,7 @@ This method called a J\+S\+O\+N-\/formatted file and display color details from 
 
 Click on this button to display colors details from another frame from a text file. 
 \begin{DoxyParams}{Parameters}
-{\em evt} & event happened in button \\
+{\em evt} & -\/ event happened in button. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classcolours_1_1_colour_frame_a693e820f5c6ea43ce0a862bd751f42c3}\label{classcolours_1_1_colour_frame_a693e820f5c6ea43ce0a862bd751f42c3}} 
@@ -97,17 +97,22 @@ Click on this button to display colors details from another frame from a text fi
 \subsubsection{\texorpdfstring{check\+List\+Not\+Empty()}{checkListNotEmpty()}}
 {\footnotesize\ttfamily Boolean colours.\+Colour\+Frame.\+check\+List\+Not\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
 
-Check to see the list is not empty, set to false \mbox{\Hypertarget{classcolours_1_1_colour_frame_a97c8597f65a97de8993a1ab05d39dd44}\label{classcolours_1_1_colour_frame_a97c8597f65a97de8993a1ab05d39dd44}} 
+Check to see the list is not empty. \mbox{\Hypertarget{classcolours_1_1_colour_frame_a97c8597f65a97de8993a1ab05d39dd44}\label{classcolours_1_1_colour_frame_a97c8597f65a97de8993a1ab05d39dd44}} 
 \index{colours\+::\+Colour\+Frame@{colours\+::\+Colour\+Frame}!display\+Color@{display\+Color}}
 \index{display\+Color@{display\+Color}!colours\+::\+Colour\+Frame@{colours\+::\+Colour\+Frame}}
 \subsubsection{\texorpdfstring{display\+Color()}{displayColor()}}
 {\footnotesize\ttfamily void colours.\+Colour\+Frame.\+display\+Color (\begin{DoxyParamCaption}\item[{List$<$ \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} $>$}]{rainbow }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
 
-Display front end G\+UI frame to the user to show all colors data from the list 
+Display front end G\+UI frame to the user to show all colors data from the list. 
 \begin{DoxyParams}{Parameters}
-{\em rainbow} & a list of \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} object from file that deserialize and serialize from J\+S\+ON string \\
+{\em rainbow} & -\/ a list of \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} object from file that deserialize and serialize from J\+S\+ON string. \\
 \hline
 \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Number\+Format\+Exception} & -\/ catch errors when the conversion between hex code and color has been failed. \\
+\hline
+\end{DoxyExceptions}
 \mbox{\Hypertarget{classcolours_1_1_colour_frame_aa654076ec5e365557e85b7ba8e3dae47}\label{classcolours_1_1_colour_frame_aa654076ec5e365557e85b7ba8e3dae47}} 
 \index{colours\+::\+Colour\+Frame@{colours\+::\+Colour\+Frame}!init\+Components@{init\+Components}}
 \index{init\+Components@{init\+Components}!colours\+::\+Colour\+Frame@{colours\+::\+Colour\+Frame}}
@@ -122,7 +127,7 @@ This method is called from within the constructor to initialize the form. W\+A\+
 
 
 \begin{DoxyParams}{Parameters}
-{\em args} & the command line arguments \\
+{\em args} & -\/ the command line arguments \\
 \hline
 \end{DoxyParams}
 
@@ -134,49 +139,49 @@ This method is called from within the constructor to initialize the form. W\+A\+
 \subsubsection{\texorpdfstring{btn\+Json\+File}{btnJsonFile}}
 {\footnotesize\ttfamily javax.\+swing.\+J\+Button colours.\+Colour\+Frame.\+btn\+Json\+File\hspace{0.3cm}{\ttfamily [private]}}
 
-Click on J\+S\+ON button to read J\+S\+ON formatted file and display color data to front end \mbox{\Hypertarget{classcolours_1_1_colour_frame_aeca940071b6ad635188894ab1be05658}\label{classcolours_1_1_colour_frame_aeca940071b6ad635188894ab1be05658}} 
+\mbox{\Hypertarget{classcolours_1_1_colour_frame_aeca940071b6ad635188894ab1be05658}\label{classcolours_1_1_colour_frame_aeca940071b6ad635188894ab1be05658}} 
 \index{colours\+::\+Colour\+Frame@{colours\+::\+Colour\+Frame}!btn\+Text\+File@{btn\+Text\+File}}
 \index{btn\+Text\+File@{btn\+Text\+File}!colours\+::\+Colour\+Frame@{colours\+::\+Colour\+Frame}}
 \subsubsection{\texorpdfstring{btn\+Text\+File}{btnTextFile}}
 {\footnotesize\ttfamily javax.\+swing.\+J\+Button colours.\+Colour\+Frame.\+btn\+Text\+File\hspace{0.3cm}{\ttfamily [private]}}
 
-Click on text button to read text file and display color data to front end \mbox{\Hypertarget{classcolours_1_1_colour_frame_a13f0c92b9066a68b8ab31cdc346e12e2}\label{classcolours_1_1_colour_frame_a13f0c92b9066a68b8ab31cdc346e12e2}} 
-\index{colours\+::\+Colour\+Frame@{colours\+::\+Colour\+Frame}!j\+Scroll\+Pane1@{j\+Scroll\+Pane1}}
-\index{j\+Scroll\+Pane1@{j\+Scroll\+Pane1}!colours\+::\+Colour\+Frame@{colours\+::\+Colour\+Frame}}
-\subsubsection{\texorpdfstring{j\+Scroll\+Pane1}{jScrollPane1}}
-{\footnotesize\ttfamily javax.\+swing.\+J\+Scroll\+Pane colours.\+Colour\+Frame.\+j\+Scroll\+Pane1\hspace{0.3cm}{\ttfamily [private]}}
-
-Scroll list box horizontally and vertically \mbox{\Hypertarget{classcolours_1_1_colour_frame_a3465e8e9a196ae2a3249b5212e954594}\label{classcolours_1_1_colour_frame_a3465e8e9a196ae2a3249b5212e954594}} 
+\mbox{\Hypertarget{classcolours_1_1_colour_frame_a3465e8e9a196ae2a3249b5212e954594}\label{classcolours_1_1_colour_frame_a3465e8e9a196ae2a3249b5212e954594}} 
 \index{colours\+::\+Colour\+Frame@{colours\+::\+Colour\+Frame}!lbl\+Json\+File@{lbl\+Json\+File}}
 \index{lbl\+Json\+File@{lbl\+Json\+File}!colours\+::\+Colour\+Frame@{colours\+::\+Colour\+Frame}}
 \subsubsection{\texorpdfstring{lbl\+Json\+File}{lblJsonFile}}
 {\footnotesize\ttfamily javax.\+swing.\+J\+Label colours.\+Colour\+Frame.\+lbl\+Json\+File\hspace{0.3cm}{\ttfamily [private]}}
 
-Display the label to instruct to the user to enter J\+S\+ON formatted file \mbox{\Hypertarget{classcolours_1_1_colour_frame_a89795e4433199461d0c29f8f2af8e35f}\label{classcolours_1_1_colour_frame_a89795e4433199461d0c29f8f2af8e35f}} 
+\mbox{\Hypertarget{classcolours_1_1_colour_frame_a89795e4433199461d0c29f8f2af8e35f}\label{classcolours_1_1_colour_frame_a89795e4433199461d0c29f8f2af8e35f}} 
 \index{colours\+::\+Colour\+Frame@{colours\+::\+Colour\+Frame}!lbl\+Text\+File@{lbl\+Text\+File}}
 \index{lbl\+Text\+File@{lbl\+Text\+File}!colours\+::\+Colour\+Frame@{colours\+::\+Colour\+Frame}}
 \subsubsection{\texorpdfstring{lbl\+Text\+File}{lblTextFile}}
 {\footnotesize\ttfamily javax.\+swing.\+J\+Label colours.\+Colour\+Frame.\+lbl\+Text\+File\hspace{0.3cm}{\ttfamily [private]}}
 
-Display the label to instruct to the user to enter text file \mbox{\Hypertarget{classcolours_1_1_colour_frame_a9c6b0ac09f52427530bd1e0fbc285cc2}\label{classcolours_1_1_colour_frame_a9c6b0ac09f52427530bd1e0fbc285cc2}} 
+\mbox{\Hypertarget{classcolours_1_1_colour_frame_a9c6b0ac09f52427530bd1e0fbc285cc2}\label{classcolours_1_1_colour_frame_a9c6b0ac09f52427530bd1e0fbc285cc2}} 
 \index{colours\+::\+Colour\+Frame@{colours\+::\+Colour\+Frame}!list\+Colour@{list\+Colour}}
 \index{list\+Colour@{list\+Colour}!colours\+::\+Colour\+Frame@{colours\+::\+Colour\+Frame}}
 \subsubsection{\texorpdfstring{list\+Colour}{listColour}}
 {\footnotesize\ttfamily javax.\+swing.\+J\+List$<$String$>$ colours.\+Colour\+Frame.\+list\+Colour\hspace{0.3cm}{\ttfamily [private]}}
 
-Display the list box that contains J\+S\+ON strings. This strings contain translated version from list of \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} objects. \mbox{\Hypertarget{classcolours_1_1_colour_frame_adaffa1254ad772940748d49324e191a0}\label{classcolours_1_1_colour_frame_adaffa1254ad772940748d49324e191a0}} 
+\mbox{\Hypertarget{classcolours_1_1_colour_frame_a4101dbab121b9af67cb0ff9ef3c64a7a}\label{classcolours_1_1_colour_frame_a4101dbab121b9af67cb0ff9ef3c64a7a}} 
+\index{colours\+::\+Colour\+Frame@{colours\+::\+Colour\+Frame}!scroll\+Pane@{scroll\+Pane}}
+\index{scroll\+Pane@{scroll\+Pane}!colours\+::\+Colour\+Frame@{colours\+::\+Colour\+Frame}}
+\subsubsection{\texorpdfstring{scroll\+Pane}{scrollPane}}
+{\footnotesize\ttfamily javax.\+swing.\+J\+Scroll\+Pane colours.\+Colour\+Frame.\+scroll\+Pane\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classcolours_1_1_colour_frame_adaffa1254ad772940748d49324e191a0}\label{classcolours_1_1_colour_frame_adaffa1254ad772940748d49324e191a0}} 
 \index{colours\+::\+Colour\+Frame@{colours\+::\+Colour\+Frame}!txt\+Json\+File@{txt\+Json\+File}}
 \index{txt\+Json\+File@{txt\+Json\+File}!colours\+::\+Colour\+Frame@{colours\+::\+Colour\+Frame}}
 \subsubsection{\texorpdfstring{txt\+Json\+File}{txtJsonFile}}
 {\footnotesize\ttfamily javax.\+swing.\+J\+Text\+Field colours.\+Colour\+Frame.\+txt\+Json\+File\hspace{0.3cm}{\ttfamily [private]}}
 
-User must enter this text field to be able to read J\+S\+ON formatted file \mbox{\Hypertarget{classcolours_1_1_colour_frame_a8acb908d5dbadca9e110960051340977}\label{classcolours_1_1_colour_frame_a8acb908d5dbadca9e110960051340977}} 
+\mbox{\Hypertarget{classcolours_1_1_colour_frame_a8acb908d5dbadca9e110960051340977}\label{classcolours_1_1_colour_frame_a8acb908d5dbadca9e110960051340977}} 
 \index{colours\+::\+Colour\+Frame@{colours\+::\+Colour\+Frame}!txt\+Text\+File@{txt\+Text\+File}}
 \index{txt\+Text\+File@{txt\+Text\+File}!colours\+::\+Colour\+Frame@{colours\+::\+Colour\+Frame}}
 \subsubsection{\texorpdfstring{txt\+Text\+File}{txtTextFile}}
 {\footnotesize\ttfamily javax.\+swing.\+J\+Text\+Field colours.\+Colour\+Frame.\+txt\+Text\+File\hspace{0.3cm}{\ttfamily [private]}}
 
-User must enter this text field to be able to read text file 
+
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

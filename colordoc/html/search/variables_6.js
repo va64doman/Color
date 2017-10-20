@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rgba',['rgba',['../classcolours_1_1_color_rainbow.html#aea1f40a66bcc34656e109edcc9cf86dd',1,'colours::ColorRainbow']]]
+  ['scrollpane',['scrollPane',['../classcolours_1_1_colour_frame.html#a4101dbab121b9af67cb0ff9ef3c64a7a',1,'colours::ColourFrame']]]
 ];

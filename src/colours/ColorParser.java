@@ -15,10 +15,10 @@ import org.json.*;
 public class ColorParser 
 {
     /**
-     * Converting a list of ColorRainbow objects into a JSON string
-     * @param list a list of ColorRainbow objects with color data
+     * Converting a list of ColorRainbow objects into a JSON string. See opposite of this method: {@link #deserializeColours}.
+     * @param list - a list of ColorRainbow objects with color data.
      * @throws NullPointerException - it is thrown when it does not contains a data from key.
-     * @return a converted JSON string when list of ColorRainbow objects was being translated into JSON format
+     * @return a converted JSON string when list of ColorRainbow objects was being translated into JSON format.
      */
     public String serializeColours(List<ColorRainbow> list) throws NullPointerException
     {
@@ -44,9 +44,10 @@ public class ColorParser
         return jsonString;
     }
     /**
-     * Converting a JSON string to a list of ColorRainbow objects
-     * @param inputJsonString a JSON-formatted string
-     * @return a list of ColorRainbow objects when translated JSON string into list
+     * Converting a JSON string to a list of ColorRainbow objects. See opposite of this method: {@link #serializeColours }.
+     * @param inputJsonString - a JSON-formatted string.
+     * @exception NullPointerException - catch errors if one of the attributes of ColorRainbow objects are null.
+     * @return a list of ColorRainbow objects when translated JSON string into list.
      */
     public List<ColorRainbow> deserializeColours(String inputJsonString)
     {

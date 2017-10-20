@@ -22,13 +22,18 @@ Van Do
 \subsubsection{\texorpdfstring{deserialize\+Colours()}{deserializeColours()}}
 {\footnotesize\ttfamily List$<$\hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow}$>$ colours.\+Color\+Parser.\+deserialize\+Colours (\begin{DoxyParamCaption}\item[{String}]{input\+Json\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Converting a J\+S\+ON string to a list of \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} objects 
+Converting a J\+S\+ON string to a list of \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} objects. See opposite of this method\+: \hyperlink{classcolours_1_1_color_parser_a3a8b5f6c8bd9045b63fd8e162f3c96d3}{serialize\+Colours}. 
 \begin{DoxyParams}{Parameters}
-{\em input\+Json\+String} & a J\+S\+O\+N-\/formatted string \\
+{\em input\+Json\+String} & -\/ a J\+S\+O\+N-\/formatted string. \\
 \hline
 \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Null\+Pointer\+Exception} & -\/ catch errors if one of the attributes of \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} objects are null. \\
+\hline
+\end{DoxyExceptions}
 \begin{DoxyReturn}{Returns}
-a list of \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} objects when translated J\+S\+ON string into list 
+a list of \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} objects when translated J\+S\+ON string into list. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classcolours_1_1_color_parser_a3a8b5f6c8bd9045b63fd8e162f3c96d3}\label{classcolours_1_1_color_parser_a3a8b5f6c8bd9045b63fd8e162f3c96d3}} 
 \index{colours\+::\+Color\+Parser@{colours\+::\+Color\+Parser}!serialize\+Colours@{serialize\+Colours}}
@@ -36,9 +41,9 @@ a list of \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} objects whe
 \subsubsection{\texorpdfstring{serialize\+Colours()}{serializeColours()}}
 {\footnotesize\ttfamily String colours.\+Color\+Parser.\+serialize\+Colours (\begin{DoxyParamCaption}\item[{List$<$ \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} $>$}]{list }\end{DoxyParamCaption}) throws Null\+Pointer\+Exception\hspace{0.3cm}{\ttfamily [inline]}}
 
-Converting a list of \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} objects into a J\+S\+ON string 
+Converting a list of \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} objects into a J\+S\+ON string. See opposite of this method\+: \hyperlink{classcolours_1_1_color_parser_a1b1dd2f7269dd1fe21a88befb27c4f3f}{deserialize\+Colours}. 
 \begin{DoxyParams}{Parameters}
-{\em list} & a list of \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} objects with color data \\
+{\em list} & -\/ a list of \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} objects with color data. \\
 \hline
 \end{DoxyParams}
 
@@ -47,7 +52,7 @@ Converting a list of \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} 
 \hline
 \end{DoxyExceptions}
 \begin{DoxyReturn}{Returns}
-a converted J\+S\+ON string when list of \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} objects was being translated into J\+S\+ON format 
+a converted J\+S\+ON string when list of \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} objects was being translated into J\+S\+ON format. 
 \end{DoxyReturn}
 
 
