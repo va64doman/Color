@@ -22,7 +22,7 @@ public class ColorTest
     // Access ReadFile class method
     ReadFile file = new ReadFile();
     // Localise list of ColorRainbow objects
-    List<ColorRainbow> list, json, deserialize;
+    List<ColorRainbow> list, json;
     // Initialise list of ColorRainbow objects
     List<ColorRainbow> empty = new ArrayList<>();
     // Localise string
@@ -35,9 +35,6 @@ public class ColorTest
         // Check if enable to read both text file and JSON formatted file
         list = file.getFromTextFile("Colors.txt");
         json = file.getFromJsonFile("ColorJson.txt");
-        // Check that both lists are not null
-        assertNotNull("List is not empty when read text file.", list);
-        assertNotNull("List is not empty when read JSON format file", json);
     }
     
     @Ignore
@@ -45,11 +42,11 @@ public class ColorTest
     {
         // Check if enable to read both text file and JSON formatted file
         // This test is ignored as been tested already
-        list = file.getFromTextFile("Nonfile.txt");
-        json = file.getFromJsonFile("Nonfile.txt");
+        List<ColorRainbow> emptyList = file.getFromTextFile("Nonfile.txt");
+        List<ColorRainbow> emptyJson = file.getFromJsonFile("Nonfile.txt");
         // Check that both lists are not null, should display as fail test
-        assertNotNull("List is not empty when read text file.", list);
-        assertNotNull("List is not empty when read JSON format file", json);
+        assertTrue("List is empty when read text file.", emptyList.isEmpty());
+        assertTrue("List is empty when read JSON format file", emptyJson.isEmpty());
     }
     
     @Test
@@ -73,6 +70,7 @@ public class ColorTest
     @Ignore
     public void checkJsonStringIsNotEmpty()
     {
+        // This test is ignore as tested already
         // Check if list can be converted into JSON and should not be empty
         serialize = parse.serializeColours(empty);
         System.out.println(serialize);
@@ -80,26 +78,38 @@ public class ColorTest
         assertFalse("JSON string is empty.", serialize.equals("[]"));
     }
     
+    @Test
+    public void checkDeserializeIntoListNotEmpty()
+    {
+        // Check if enable to convert JSON string to list and ensure list is not empty
+        serialize = parse.serializeColours(list);
+        List<ColorRainbow> deserialize = parse.deserializeColours(serialize);
+        assertNotNull("List is not empty", deserialize);
+    }
+    
+    @Ignore
+    public void checkDeserializeEmptyJsonStringIntoListEmpty()
+    {
+        // This test ignored as tested already
+        // Check if convert empty JSON string to list is given empty list
+        List<ColorRainbow> deserialize = parse.deserializeColours("[]");
+        assertTrue("List is not empty", deserialize.isEmpty());
+    }
+    
     @After
     public void checkDeserializeIntoListOfColorRainbow()
     {
         // Display results after test
-        // Even though it does catch null pointer exception.
         // This test focues on JSON string be able to convert to list of ColorRainbow objects
         // Convert JSON string to list of ColorRainbow objects
-        deserialize = parse.deserializeColours(serialize);
-        // Loop all list's elements and display on test
+        serialize = parse.serializeColours(list);
+        List<ColorRainbow> deserialize = parse.deserializeColours(serialize);
         for(int count = 0; count < deserialize.size(); count++)
         {
-            if(deserialize.get(count) != null)
-            {
-                System.out.print(deserialize.get(count).getName() + " ");
-                System.out.print(deserialize.get(count).getHexCode() + " ");
-                System.out.print(Arrays.toString(deserialize.get(count).getRGBA()));
-                System.out.println();
-            }
+            System.out.print(deserialize.get(count).getName() + " ");
+            System.out.print(deserialize.get(count).getHexCode() + " ");
+            System.out.print(Arrays.toString(deserialize.get(count).getRGBA()));
+            System.out.println();
         }
-        // Should be false since list is not empty
-        assertFalse("JSON string was unable to convert into list.", list.isEmpty());
     }
 }
