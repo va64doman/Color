@@ -9,6 +9,10 @@ import java.util.*;
 import static org.junit.Assert.*;
 // Access project
 import colours.*;
+// Use Color methods to test if enable to convert hex code to color
+import java.awt.Color;
+// Use FileNotFoundException to test existence of file
+import java.io.*;
 import org.junit.*;
 
 /**
@@ -27,7 +31,7 @@ public class ColorTest
     List<ColorRainbow> empty = new ArrayList<>();
     // Localise string
     String serialize;
-    
+    // Check if file exists before testing
     @Before
     public void checkIfFileExist()
     {
@@ -36,8 +40,9 @@ public class ColorTest
         list = file.getFromTextFile("Colors.txt");
         json = file.getFromJsonFile("ColorJson.txt");
     }
-    
-    @Ignore
+    // Ignore non existence file test
+    @Ignore("Have already tested.")
+    @Test(expected = FileNotFoundException.class)
     public void checkIfFileDoesNotExist()
     {
         // Check if enable to read both text file and JSON formatted file
@@ -48,7 +53,7 @@ public class ColorTest
         assertTrue("List is empty when read text file.", emptyList.isEmpty());
         assertTrue("List is empty when read JSON format file", emptyJson.isEmpty());
     }
-    
+    // Test if the list is not empty when read files
     @Test
     public void checkIfListNotEmpty()
     {
@@ -56,7 +61,7 @@ public class ColorTest
         assertFalse(list.isEmpty());
         assertFalse(json.isEmpty());
     }
-    
+    // Test if be able to convert list into JSON string
     @Test
     public void checkSerializeIntoJsonString()
     {
@@ -66,18 +71,19 @@ public class ColorTest
         // It should not display empty JSON string
         assertFalse("JSON string is empty.", serialize.equals("[]"));
     }
-    
-    @Ignore
-    public void checkJsonStringIsNotEmpty()
+    // Ignore empty JSON string test
+    @Ignore("Have already tested.")
+    @Test
+    public void checkJsonStringIsEmpty()
     {
         // This test is ignore as tested already
         // Check if list can be converted into JSON and should not be empty
         serialize = parse.serializeColours(empty);
         System.out.println(serialize);
         // Display test failed as JSON string is empty since list is empty
-        assertFalse("JSON string is empty.", serialize.equals("[]"));
+        assertEquals("JSON string is empty.", "[]", serialize);
     }
-    
+    // Test if convert JSON string to list is successful
     @Test
     public void checkDeserializeIntoListNotEmpty()
     {
@@ -86,8 +92,9 @@ public class ColorTest
         List<ColorRainbow> deserialize = parse.deserializeColours(serialize);
         assertNotNull("List is not empty", deserialize);
     }
-    
-    @Ignore
+    // Ignore inverse operation from serialization test
+    @Ignore("Have already tested.")
+    @Test
     public void checkDeserializeEmptyJsonStringIntoListEmpty()
     {
         // This test ignored as tested already
@@ -95,7 +102,25 @@ public class ColorTest
         List<ColorRainbow> deserialize = parse.deserializeColours("[]");
         assertTrue("List is not empty", deserialize.isEmpty());
     }
-    
+    // Ignore checking exception test
+    @Ignore("Have already tested.")
+    @Test(expected = NullPointerException.class)
+    public void readFileThatContainsMissingOrMistakenValues()
+    {
+        // Test if the file exists but read have problems compared from the variable requirements
+        // from ColorRainbow
+        List<ColorRainbow> errorList = file.getFromJsonFile("Fail Color.json");
+    }
+    // Test if the conversion between hex code to color is successful
+    @Test
+    public void convertHexCodeToColor()
+    {
+        // Display in red, green and blue format
+        Color convertedColor = Color.decode(list.get(0).getHexCode());
+        System.out.println(convertedColor);
+        assertNotNull("The hex code to color conversion is successful", convertedColor);
+    }
+    // After the test, deserialize JSON string back to list
     @After
     public void checkDeserializeIntoListOfColorRainbow()
     {

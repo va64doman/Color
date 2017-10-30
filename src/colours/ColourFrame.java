@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package colours;
-
+// Following the coding standard from this website below.
+// https://www.securecoding.cert.org/confluence/display/java/Java+Coding+Guidelines
 // Use for making a background colour from the label
 import java.awt.Color;
 // Use for list to store ColorRainbow objects
@@ -300,13 +301,37 @@ public class ColourFrame extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    /**
+     * The JSON button allows to read the JSON formatted file and display all color data from this file.
+     */
     private javax.swing.JButton btnJsonFile;
+    /**
+     * The text button allows to read text file and display all color data from this file.
+     */
     private javax.swing.JButton btnTextFile;
+    /**
+     * The label that instructs which file to enter.
+     */
     private javax.swing.JLabel lblJsonFile;
+    /**
+     * The label that instructs which file to enter.
+     */
     private javax.swing.JLabel lblTextFile;
+    /**
+     * This list box contains the JSON string that the list was being serialized.
+     */
     private javax.swing.JList<String> listColour;
+    /**
+     * The scroll pane to scroll down or across the list box.
+     */
     private javax.swing.JScrollPane scrollPane;
+    /**
+     * The text field that allows user to enter the text file.
+     */
     private javax.swing.JTextField txtJsonFile;
+    /**
+     * The text field that allows user to enter JSON formatted file.
+     */
     private javax.swing.JTextField txtTextFile;
     // End of variables declaration//GEN-END:variables
 }
