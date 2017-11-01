@@ -42,7 +42,6 @@ public class ColorTest
     }
     // Ignore non existence file test
     @Ignore("Have already tested.")
-    @Test(expected = FileNotFoundException.class)
     public void checkIfFileDoesNotExist()
     {
         // Check if enable to read both text file and JSON formatted file
@@ -73,7 +72,6 @@ public class ColorTest
     }
     // Ignore empty JSON string test
     @Ignore("Have already tested.")
-    @Test
     public void checkJsonStringIsEmpty()
     {
         // This test is ignore as tested already
@@ -94,7 +92,6 @@ public class ColorTest
     }
     // Ignore inverse operation from serialization test
     @Ignore("Have already tested.")
-    @Test
     public void checkDeserializeEmptyJsonStringIntoListEmpty()
     {
         // This test ignored as tested already
@@ -104,7 +101,6 @@ public class ColorTest
     }
     // Ignore checking exception test
     @Ignore("Have already tested.")
-    @Test(expected = NullPointerException.class)
     public void readFileThatContainsMissingOrMistakenValues()
     {
         // Test if the file exists but read have problems compared from the variable requirements
