@@ -11,8 +11,6 @@ import static org.junit.Assert.*;
 import colours.*;
 // Use Color methods to test if enable to convert hex code to color
 import java.awt.Color;
-// Use FileNotFoundException to test existence of file
-import java.io.*;
 import org.junit.*;
 
 /**
