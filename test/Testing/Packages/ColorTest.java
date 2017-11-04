@@ -12,6 +12,7 @@ import colours.*;
 // Use Color methods to test if enable to convert hex code to color
 import java.awt.Color;
 import org.junit.*;
+import java.io.*;
 
 /**
  *
@@ -99,11 +100,28 @@ public class ColorTest
     }
     // Ignore checking exception test
     @Ignore("Have already tested.")
-    public void readFileThatContainsMissingOrMistakenValues()
+    public void readFileThatContainsMissingOrMistakenValues() throws FileNotFoundException, IOException
     {
         // Test if the file exists but read have problems compared from the variable requirements
         // from ColorRainbow
-        List<ColorRainbow> errorList = file.getFromJsonFile("Fail Color.json");
+        String fileName = "Fail Color.txt";
+        // Get list from this file
+        List<ColorRainbow> errorList = file.getFromJsonFile(fileName);
+        // Get the total number of lines from file
+        int lines;
+        // Try with resources to use the buffered reader
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) 
+        {
+            // Set lines to 0
+            lines = 0;
+            // Keep incrementing lines by 1 when current line from file is not null
+            while(reader.readLine() != null)
+            {
+                lines++;
+            }
+        }
+        // Check if it is true that the list's size is less than lines
+        assertTrue("There are less data than the number of lines in file.", errorList.size() < lines);
     }
     // Test if the conversion between hex code to color is successful
     @Test
