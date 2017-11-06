@@ -132,6 +132,23 @@ public class ColorTest
         System.out.println(convertedColor);
         assertNotNull("The hex code to color conversion is successful", convertedColor);
     }
+    // Test if incorrect hex code cannot be converted into color
+    @Ignore("Have already tested")
+    public void failConvertHexCodeToColorAndThrowNumberFormatException()
+    {
+        try
+        {
+            // The test will fail if the conversion was successful
+            Color convertedColor = Color.decode("#FXC");
+            //Color convertedColor = Color.decode("#FFF");
+            fail("Should have thrown error if the hex code cannot be converted.");
+        }
+        catch(NumberFormatException error)
+        {
+            // The test will pass if the conversion was failed.
+            assertTrue("The conversion has failed.", error.getMessage() != null);
+        }
+    }
     // After the test, deserialize JSON string back to list
     @After
     public void checkDeserializeIntoListOfColorRainbow()
