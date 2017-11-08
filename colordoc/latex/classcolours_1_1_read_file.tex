@@ -3,8 +3,6 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-List$<$ \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} $>$ \hyperlink{classcolours_1_1_read_file_a6b240cdce8df090dca527f367bacb95b}{get\+From\+Text\+File} (String file\+Name)
-\item 
 List$<$ \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} $>$ \hyperlink{classcolours_1_1_read_file_a66c626180f88d15c7833677481eede05}{get\+From\+Json\+File} (String file\+Name)
 \end{DoxyCompactItemize}
 \subsection*{Private Attributes}
@@ -29,7 +27,7 @@ Van Do
 \subsubsection{\texorpdfstring{get\+From\+Json\+File()}{getFromJsonFile()}}
 {\footnotesize\ttfamily List$<$\hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow}$>$ colours.\+Read\+File.\+get\+From\+Json\+File (\begin{DoxyParamCaption}\item[{String}]{file\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Read a J\+S\+O\+N-\/formatted file and deserialize the J\+S\+ON string into list of \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} objects. See similar\+: \hyperlink{classcolours_1_1_read_file_a6b240cdce8df090dca527f367bacb95b}{get\+From\+Text\+File}. 
+Read a J\+S\+O\+N-\/formatted file and deserialize the J\+S\+ON string into list of \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} objects. 
 \begin{DoxyParams}{Parameters}
 {\em file\+Name} & -\/ the name of the file you want to read. \\
 \hline
@@ -39,38 +37,13 @@ list of \hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow} objects.
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em File\+Not\+Found\+Exception} & -\/ see \hyperlink{classcolours_1_1_read_file_a6b240cdce8df090dca527f367bacb95b}{get\+From\+Text\+File}. \\
-\hline
-{\em I\+O\+Exception} & -\/ see \hyperlink{classcolours_1_1_read_file_a6b240cdce8df090dca527f367bacb95b}{get\+From\+Text\+File}. \\
-\hline
-{\em Illegal\+Argument\+Exception} & -\/ see \hyperlink{classcolours_1_1_read_file_a6b240cdce8df090dca527f367bacb95b}{get\+From\+Text\+File}. \\
-\hline
-{\em J\+S\+O\+N\+Exception} & -\/ check if line is not in J\+S\+ON format. \\
-\hline
-\end{DoxyExceptions}
-\mbox{\Hypertarget{classcolours_1_1_read_file_a6b240cdce8df090dca527f367bacb95b}\label{classcolours_1_1_read_file_a6b240cdce8df090dca527f367bacb95b}} 
-\index{colours\+::\+Read\+File@{colours\+::\+Read\+File}!get\+From\+Text\+File@{get\+From\+Text\+File}}
-\index{get\+From\+Text\+File@{get\+From\+Text\+File}!colours\+::\+Read\+File@{colours\+::\+Read\+File}}
-\subsubsection{\texorpdfstring{get\+From\+Text\+File()}{getFromTextFile()}}
-{\footnotesize\ttfamily List$<$\hyperlink{classcolours_1_1_color_rainbow}{Color\+Rainbow}$>$ colours.\+Read\+File.\+get\+From\+Text\+File (\begin{DoxyParamCaption}\item[{String}]{file\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-This method allows to read from a text file and convert the data into a list. See similar\+: \hyperlink{classcolours_1_1_read_file_a66c626180f88d15c7833677481eede05}{get\+From\+Json\+File}. 
-\begin{DoxyParams}{Parameters}
-{\em file\+Name} & -\/ the name of the file you want to read from. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-the list of all color data. 
-\end{DoxyReturn}
-
-\begin{DoxyExceptions}{Exceptions}
 {\em File\+Not\+Found\+Exception} & -\/ catch errors if file does not existed. \\
 \hline
 {\em I\+O\+Exception} & -\/ catch errors if input operation has failed to read. \\
 \hline
-{\em Illegal\+Argument\+Exception} & -\/ catch errors if the data from file does not match variable\textquotesingle{}s requirement. See \hyperlink{classcolours_1_1_read_file_a66c626180f88d15c7833677481eede05}{get\+From\+Json\+File}. \\
+{\em Illegal\+Argument\+Exception} & -\/ catch errors if the data from file does not match variable\textquotesingle{}s requirement. \\
 \hline
-{\em Array\+Index\+Out\+Of\+Bounds\+Exception} & -\/ catch when the there are less split arrays in line. See \hyperlink{classcolours_1_1_read_file_a66c626180f88d15c7833677481eede05}{get\+From\+Json\+File}. \\
+{\em J\+S\+O\+N\+Exception} & -\/ check if line is not in J\+S\+ON format. \\
 \hline
 \end{DoxyExceptions}
 

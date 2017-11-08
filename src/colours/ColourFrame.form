@@ -35,14 +35,6 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="btnJsonFile" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="lblTextFile" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtTextFile" min="-2" pref="130" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnTextFile" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -53,45 +45,24 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblTextFile" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtTextFile" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnTextFile" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblJsonFile" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtJsonFile" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnJsonFile" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="scrollPane" min="-2" pref="103" max="-2" attributes="0"/>
-              <EmptySpace pref="117" max="32767" attributes="0"/>
+              <Component id="scrollPane" pref="243" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="lblTextFile">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Enter text file"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="lblJsonFile">
       <Properties>
         <Property name="text" type="java.lang.String" value="Enter JSON formatted File"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtTextFile">
-    </Component>
     <Component class="javax.swing.JTextField" name="txtJsonFile">
-    </Component>
-    <Component class="javax.swing.JButton" name="btnTextFile">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Read Text File and Show Colour Data"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTextFileActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnJsonFile">
       <Properties>

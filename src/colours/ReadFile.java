@@ -32,81 +32,12 @@ public class ReadFile
      * @see ColorRainbow
      */
     private List<ColorRainbow> list;
-    /** This method allows to read from a text file and convert the data into a list. See similar: {@link #getFromJsonFile}.
-     * @param fileName - the name of the file you want to read from.
-     * @return the list of all color data.
-     * @exception FileNotFoundException - catch errors if file does not existed.
-     * @exception IOException - catch errors if input operation has failed to read.
-     * @exception IllegalArgumentException - catch errors if the data from file does not match variable's requirement. See {@link #getFromJsonFile}.
-     * @exception ArrayIndexOutOfBoundsException - catch when the there are less split arrays in line. See {@link #getFromJsonFile}.
-     */
-    public List<ColorRainbow> getFromTextFile(String fileName)
-    {
-        // Read through all lines from text file
-        // Initialise empty list
-        list = new ArrayList<>();
-        // Try and catch if file is not existed or line is incorrect
-        try
-        {
-            // Set current line as string
-            String currentLine;
-            // Access stream reader class methods using the file by user input
-            file = new BufferedReader(new FileReader(fileName));
-            // Read the first line and set as currentLine
-            currentLine = file.readLine();
-            // While this line is not null
-            while (currentLine != null)
-            {
-                // Set string arrays when spliting the line from commas
-                String[] splits = currentLine.split(",");
-                // Set name from splits[0]
-                String name = splits[0];
-                // Set hex code from splits[1]
-                String hexCode = splits[1];
-                // Set red from splits[2]
-                int red = Integer.parseInt(splits[2]);
-                // Set green from splits[3]
-                int green = Integer.parseInt(splits[3]);
-                // Set blue from splits[4]
-                int blue = Integer.parseInt(splits[4]);
-                // Set alpha from splits[5]
-                int alpha = Integer.parseInt(splits[5]);
-                // Set ColorRainbow object
-                ColorRainbow colours = new ColorRainbow();
-                // Set object's name by name
-                colours.setName(name);
-                // Set object's hex code by hex code
-                colours.setHexCode(hexCode);
-                // Set object rgba attribute by red, green, blue and alpha
-                colours.setRGBA(new int[] { red, green, blue, alpha });
-                // Add object to list
-                list.add(colours);
-                // Read the next line
-                currentLine = file.readLine();
-            }
-        }
-        // Throw error where file is not existed
-        catch(FileNotFoundException ex)
-        {
-            System.out.println("Error message is " + ex);
-            JOptionPane.showMessageDialog(null, "File does not existed.", "Unknown File", JOptionPane.INFORMATION_MESSAGE);
-        }
-        // Throw error where there are not enough attributes from file
-        catch (IllegalArgumentException | IOException | ArrayIndexOutOfBoundsException ex)
-        {
-            System.out.println("Error message is " + ex);
-            JOptionPane.showMessageDialog(null, "Something wrong with the data in file. Please check.", "Problem With File", JOptionPane.INFORMATION_MESSAGE);
-        }
-        // Throw error where the file is existed but transferring data is incorrect
-        // Return list of colour
-        return list;
-    }
-    /** Read a JSON-formatted file and deserialize the JSON string into list of ColorRainbow objects. See similar: {@link #getFromTextFile}.
+    /** Read a JSON-formatted file and deserialize the JSON string into list of ColorRainbow objects.
      * @param fileName - the name of the file you want to read.
      * @return list of ColorRainbow objects.
-     * @exception FileNotFoundException - see {@link #getFromTextFile}.
-     * @exception IOException - see {@link #getFromTextFile}.
-     * @exception IllegalArgumentException - see {@link #getFromTextFile}.
+     * @exception FileNotFoundException - catch errors if file does not existed.
+     * @exception IOException - catch errors if input operation has failed to read.
+     * @exception IllegalArgumentException - catch errors if the data from file does not match variable's requirement.
      * @exception JSONException - check if line is not in JSON format.
      */
     public List<ColorRainbow> getFromJsonFile(String fileName)

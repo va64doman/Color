@@ -75,8 +75,6 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6b240cdce8df090dca527f367bacb95b"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classcolours_1_1_color_rainbow.html">ColorRainbow</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcolours_1_1_read_file.html#a6b240cdce8df090dca527f367bacb95b">getFromTextFile</a> (String fileName)</td></tr>
-<tr class="separator:a6b240cdce8df090dca527f367bacb95b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66c626180f88d15c7833677481eede05"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classcolours_1_1_color_rainbow.html">ColorRainbow</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcolours_1_1_read_file.html#a66c626180f88d15c7833677481eede05">getFromJsonFile</a> (String fileName)</td></tr>
 <tr class="separator:a66c626180f88d15c7833677481eede05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -113,7 +111,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Read a JSON-formatted file and deserialize the JSON string into list of <a class="el" href="classcolours_1_1_color_rainbow.html">ColorRainbow</a> objects. See similar: <a class="el" href="classcolours_1_1_read_file.html#a6b240cdce8df090dca527f367bacb95b">getFromTextFile</a>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Read a JSON-formatted file and deserialize the JSON string into list of <a class="el" href="classcolours_1_1_color_rainbow.html">ColorRainbow</a> objects. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fileName</td><td>- the name of the file you want to read. </td></tr>
   </table>
@@ -122,52 +120,10 @@ Private Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>list of <a class="el" href="classcolours_1_1_color_rainbow.html">ColorRainbow</a> objects. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">FileNotFoundException</td><td>- see <a class="el" href="classcolours_1_1_read_file.html#a6b240cdce8df090dca527f367bacb95b">getFromTextFile</a>. </td></tr>
-    <tr><td class="paramname">IOException</td><td>- see <a class="el" href="classcolours_1_1_read_file.html#a6b240cdce8df090dca527f367bacb95b">getFromTextFile</a>. </td></tr>
-    <tr><td class="paramname">IllegalArgumentException</td><td>- see <a class="el" href="classcolours_1_1_read_file.html#a6b240cdce8df090dca527f367bacb95b">getFromTextFile</a>. </td></tr>
-    <tr><td class="paramname">JSONException</td><td>- check if line is not in JSON format. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a6b240cdce8df090dca527f367bacb95b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b240cdce8df090dca527f367bacb95b">&#9670;&nbsp;</a></span>getFromTextFile()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">List&lt;<a class="el" href="classcolours_1_1_color_rainbow.html">ColorRainbow</a>&gt; colours.ReadFile.getFromTextFile </td>
-          <td>(</td>
-          <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>fileName</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>This method allows to read from a text file and convert the data into a list. See similar: <a class="el" href="classcolours_1_1_read_file.html#a66c626180f88d15c7833677481eede05">getFromJsonFile</a>. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fileName</td><td>- the name of the file you want to read from. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>the list of all color data. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
     <tr><td class="paramname">FileNotFoundException</td><td>- catch errors if file does not existed. </td></tr>
     <tr><td class="paramname">IOException</td><td>- catch errors if input operation has failed to read. </td></tr>
-    <tr><td class="paramname">IllegalArgumentException</td><td>- catch errors if the data from file does not match variable's requirement. See <a class="el" href="classcolours_1_1_read_file.html#a66c626180f88d15c7833677481eede05">getFromJsonFile</a>. </td></tr>
-    <tr><td class="paramname">ArrayIndexOutOfBoundsException</td><td>- catch when the there are less split arrays in line. See <a class="el" href="classcolours_1_1_read_file.html#a66c626180f88d15c7833677481eede05">getFromJsonFile</a>. </td></tr>
+    <tr><td class="paramname">IllegalArgumentException</td><td>- catch errors if the data from file does not match variable's requirement. </td></tr>
+    <tr><td class="paramname">JSONException</td><td>- check if line is not in JSON format. </td></tr>
   </table>
   </dd>
 </dl>
