@@ -209,6 +209,7 @@ public class ColourFrame extends javax.swing.JFrame
         
     }
     /**
+     * The static void that allows to run the swing application.
      * @param args - the command line arguments
      */
     public static void main(String args[]) 
