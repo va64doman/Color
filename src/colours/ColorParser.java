@@ -10,6 +10,8 @@ import org.json.*;
 
 /**
  * ColorParser --- This class contains method to translate list of ColorRainbow objects to JSON string and back.
+ * This required a library to access serialize and deserialize methods for JSON format.
+ * <p>See from this web site about this library: https://github.com/stleary/JSON-java</p>
  * @author Van Do
  */
 public class ColorParser 
